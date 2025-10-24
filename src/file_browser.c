@@ -49,11 +49,6 @@ char* select_file(void) {
         int is_dir[256];
         int count = 0;
 
-        // if (strchr(current_path + 1, '/')) {
-        //     strcpy(items[count], "..");
-        //     is_dir[count++] = 1;
-        // }
-
         while ((entry = readdir(dir)) != NULL && count < 256) {
             if (strcmp(entry->d_name, ".") == 0) continue;
             strcpy(items[count], entry->d_name);
