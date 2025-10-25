@@ -78,11 +78,23 @@ int main(int argc, char **argv) {
             unsigned char g = data[i+1];
             unsigned char b = data[i+2];
             unsigned char pixelValue = (r + g + b) / 3;
+            unsigned char a = (channels == 4) ? data[i+3] : 255;
 
-            int index = (pixelValue * (paletteSize - 1)) / 255;
-            char symbol = grayscale[index];
+            char symbol;
+            if (a == 0) {
+                symbol = ' '; // transparent
+            } else {
+                unsigned char pixelValue = (r + g + b) / 3;
+                int index = (pixelValue * (paletteSize - 1)) / 255;
+                symbol = grayscale[index];
+            }
 
-            printf("\033[38;2;%d;%d;%dm%c\033[0m", r, g, b, symbol);
+            // Color Draw
+            if (a == 0) {
+                putchar(' '); // transparent
+            } else {
+                printf("\033[38;2;%d;%d;%dm%c\033[0m", r, g, b, symbol);
+            }
 
             if (!nospace_flag) putchar(' ');
         }
