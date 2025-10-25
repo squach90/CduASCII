@@ -35,7 +35,7 @@ int main(int argc, char **argv) {
     }
 
     // Palette
-    const char *grayscale = "@%#*+=:-. ";
+    const char *grayscale = "@%#*+=:- .";
     int paletteSize = strlen(grayscale);
     float char_aspect = 2.0f;
     int effective_cols = w.ws_col;
@@ -84,7 +84,6 @@ int main(int argc, char **argv) {
             if (a == 0) {
                 symbol = ' '; // transparent
             } else {
-                unsigned char pixelValue = (r + g + b) / 3;
                 int index = (pixelValue * (paletteSize - 1)) / 255;
                 symbol = grayscale[index];
             }
@@ -93,7 +92,7 @@ int main(int argc, char **argv) {
             if (a == 0) {
                 putchar(' '); // transparent
             } else {
-                printf("\033[38;2;%d;%d;%dm%c\033[0m", r, g, b, symbol);
+                printf("\033[1;38;2;%d;%d;%dm%c\033[0m", r, g, b, symbol);
             }
 
             if (!nospace_flag) putchar(' ');
