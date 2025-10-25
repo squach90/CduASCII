@@ -8,7 +8,7 @@
 
 | Original images    | Render Images      |
 | ------------- | ------------- |
-| <img src="assets/Memoji.jpeg" width="200"> | <img src="assets/MemojiASCII.png" width="200"> |
+| <img src="assets/people.png" width="200"> | <img src="assets/peopleASCII.png" width="200"> |
 | <img src="assets/picto.png" width="200"> | <img src="assets/pictoASCII.png" width="200"> |
 
 ### How to use it ?
