@@ -35,8 +35,8 @@ int main(int argc, char **argv) {
     }
 
     // Palette
-    const char *grayscale = "@%#*+=:- .";
-    int paletteSize = strlen(grayscale);
+    const char *palette = "@%#*+=:- .";
+    int paletteSize = strlen(palette);
     float char_aspect = 2.0f;
     int effective_cols = w.ws_col;
     int effective_rows = w.ws_row - 1;
@@ -85,7 +85,7 @@ int main(int argc, char **argv) {
                 symbol = ' '; // transparent
             } else {
                 int index = (pixelValue * (paletteSize - 1)) / 255;
-                symbol = grayscale[index];
+                symbol = palette[index];
             }
 
             // Color Draw
